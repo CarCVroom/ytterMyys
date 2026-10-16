@@ -1,12 +1,12 @@
 # ytterMyys
 
-A simple satelite and orbit simultor for the web made in C++, Typescript and svelte(?)
+A simple satelite and orbit simultor for the web made in C++, Typescript and html
 
 ## Progress
 
 - Get the idea and everything like that done [y]
 
-- Make a simple frontend in svelte and TS []
+- Make a simple frontend in html and TS []
 
 - Make the backend for 2d (for now) orbit simulator. The user should be able to input the altitude and make ajustments to the orbit while using the correct math and deltaV. []
 
