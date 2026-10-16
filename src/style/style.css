@@ -1,6 +1,38 @@
 body {
 	font-family: Arial, sans-serif;
+	margin: 0;
 }
 #header {
 	background-color: red;
+	padding: 10px;
+	text-align: left;
+	color: white;
+	font-size: 30px;
+}
+#header_text {
+	padding-left: 30px;
+	margin: 20px;
+	color: white;
+}
+h1 {
+	margin-left: 20px;
+	margin: 30px;
+	color: #292929;
+}
+h2 {
+	margin-left: 20px;
+	margin: 30px;
+	color: #292929;
+}
+label {
+	margin-left: 20px;
+	margin:30px;
+	font-size: 22px;
+	color: #292929;
+}
+input {
+	size: 50;
+	margin-left: 20px;
+	margin: 30px;
+	color: #292929;
 }
