@@ -1,2 +1,2 @@
-main: cpp/main.cpp
-	g++ cpp/main.cpp -o build/main
+main: cpp/main.cpp cpp/orbit.cpp
+	g++ cpp/main.cpp cpp/orbit.cpp -o build/main && ./build/main
