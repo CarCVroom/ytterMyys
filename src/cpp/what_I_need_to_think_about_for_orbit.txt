@@ -1,0 +1,11 @@
+gravity
+position and velocity
+Diffrent trajectories
+
+UNITS
+Position: Meters
+Veloctiy: m/s
+Acceleraion: m/s^2 Caret is shift 6
+Time: seconds
+Mass: Kg
+Gravitational parameter (What?): m^3/s^2

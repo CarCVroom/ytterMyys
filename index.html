@@ -3,12 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="src/css/style.css">
+	<link rel="stylesheet" href="src/style/style.css">
 	<title>ytterMyys</title>
 </head>
 <body>
 	<header id="header">
-		<h1>ytterMyys</h1>
+		<h1 id="header_text">ytterMyys</h1>
 	</header>
+	<h1>ytterMyys is an orbital sandbox and a spacecraft simulator</h1>
+	<h2>Under you will add in stats like periapsis and apoapsis and any potential orbital changes</h2>
+
+	<!-- User inputs here-->
+	<label for="apoapsis">Apoapsis (meters): </label><br>
+	<input type="number" name="apoapsis" id="apoapsis" placeholder="Enter your apoapsis here">
+
+	<br>
+
+	<label for="periapsis">Periapsis (meters): </label><br>
+	<input type="number" name="periapsis" id="periapsis" placeholder="Enter your apoapsis here">
+
+	<!-- User changes to the orbit here-->
+
+	<h2>Change orbit</h1>
+	<label>
+		<input type="radio" name="orbit_change" value="change_to" checked>
+		Change to a diffrent periapsis and apoapsis
+	</label>
+
+	<label>
+		<input type="radio" name="orbit_change" value="deltaV" checked>
+		Burn at a spot in orbit with a certian amount of deltaV for n amount of seconds and an amount of twr
+	</label>
+
 </body>
 </html>
