@@ -2,12 +2,7 @@
 #include "orbit.hpp"
 
 int main() {
-	std::cout << "Hello, World" << std::endl;
-
-	int result = test();
-	if (result != 0) {
-		std::cout << "Something went wrong" << std::endl;
-	}
+	falling_test(2, 400000);	
 
 	return 0;
 }
