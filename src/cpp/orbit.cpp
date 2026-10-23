@@ -14,15 +14,23 @@ void orbit_test(double altitude) {
 		.y = 0,
 		.vx = 0,
 		.vy = std::sqrt(EARTHMU / r),
-		.timeDT = 0,
+		.timeDT = 0.0, // Seconds
 	};
 
 	bool in_orbit = true;
 	while (in_orbit) {
-		r = RADIUS + altitude;
+		r = pythagoras(spacecraft_status.x, spacecraft_status.y);
 		spacecraft_status.x = r;
+
+		std::cout <<std::fixed << "y is: " << spacecraft_status.y << ". x is: "<< spacecraft_status.x << std::endl;
+
+		spacecraft_status.timeDT = spacecraft_status.timeDT + 0.10;
 	}
 
+}
+
+double pythagoras(double x, double y) {
+	return sqrt((x * x) + (y * y));
 }
 
 void falling_test(double spacecraft_mass, double altitude) {

@@ -2,7 +2,7 @@
 #include "orbit.hpp"
 
 int main() {
-	falling_test(2, 400000);	
+	orbit_test(400000);	
 
 	return 0;
 }

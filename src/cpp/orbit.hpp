@@ -10,6 +10,7 @@ struct State {
 
 void falling_test(double spacecraft_mass, double altitude);
 void orbit_test(double altitude);
+double pythagoras(double x, double y);
 
 constexpr double RADIUS = 6371000; // meters
 constexpr double EARTHMU = 3.98600435507e14; // m^3/s^2
