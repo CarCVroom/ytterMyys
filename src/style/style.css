@@ -24,6 +24,11 @@ h2 {
 	margin: 30px;
 	color: #292929;
 }
+h4 {
+	margin-left: 20px;
+	margin: 30px;
+	color: #292929;
+}
 label {
 	margin-left: 20px;
 	margin:30px;
@@ -33,7 +38,18 @@ label {
 input {
 	size: 50;
 	margin-left: 20px;
-	margin: 30px;
+	margin: 20px;
 	color: #292929;
 }
+button {
+	size: 50;
+	margin-left: 30px;
+	margin: 10px;
+	color: #292929;
+}
+#orbit_area {
+	width: 1000px;
+	height: 1000px;
 
+	border: 2px solid black;
+}

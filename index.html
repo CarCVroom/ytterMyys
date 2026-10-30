@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header id="header">
-		<h1 id="header_text">ytterMyys</h1>
+	<h1 id="header_text">ytterMyys</h1>
 	</header>
 	<h1>ytterMyys is an orbital sandbox and a spacecraft simulator</h1>
 	<h2>Under you will add in stats like periapsis and apoapsis and any potential orbital changes</h2>
@@ -22,20 +22,38 @@
 	<label for="periapsis">Periapsis (meters): </label><br>
 	<input type="number" name="periapsis" id="periapsis" placeholder="Enter your apoapsis here">
 
+	<br>
+
+	<button  name="start" id="start" >Start</button>
+
 	<!-- User changes to the orbit here-->
 
 	<h2>Change orbit</h1>
 	<label>
 		<input type="radio" name="orbit_change" value="change_to" checked>
-		Change to a diffrent periapsis and apoapsis
+		Change to a different periapsis and apoapsis
 	</label>
 
 	<label>
 		<input type="radio" name="orbit_change" value="deltaV" checked>
-		Burn at a spot in orbit with a certian amount of deltaV for n amount of seconds and an amount of twr
+		Burn at a spot in orbit with a certian amount of deltaV for n amount of seconds
 	</label>
 
-	<canvas id="orbit_area" height="1200" width="1200"></canvas>
+	<h2>Orbit simulator</h1>
 
+	<script type="importmap"> {
+	"imports": {
+		"three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js"
+	}
+    	}
+    	</script>
+	<script  type="module" src="src/ts/main.js"></script>
+
+	<h4 id="altitude_gauge"> Altitude: </h4>
+	<h4 id="time_gauge"> Time elapsed: </h4>
+
+	<div style="display: flex; justify-content: center; align-items: center;">
+	<div id="orbit_area"></div>
+	</div>
 </body>
 </html>

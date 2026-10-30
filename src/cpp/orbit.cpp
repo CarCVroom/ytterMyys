@@ -2,57 +2,83 @@
 #include <iostream>
 #include <cmath>
 
-void orbit_test(double altitude) {
+State spacecraft_status = {
+	.x = 0,
+	.y = 0,
+	.vx = 0,
+	.vy = 0,
+	.elapsed_time = 0.0	
+};
+
+void orbit_start(double altitude) {
 	if (altitude + RADIUS < RADIUS) {
 		std::cout << "alititude must be greater then Radius + altitude. IE it can't be a negative number or 0." << std::endl;
 		return;
 	}
 
 	double r = RADIUS + altitude;
-	State spacecraft_status = {
-		.x = r,
-		.y = 0,
-		.vx = 0,
-		.vy = std::sqrt(EARTHMU / r),
-		.elapsed_time = 0.0	
-	};
+	spacecraft_status.x = r;
+	spacecraft_status.vy = std::sqrt(EARTHMU / r);
+}
+
+void orbit_update(double altitude) {
+	if (altitude + RADIUS < RADIUS) {
+		std::cout << "You hit the ground" << std::endl;
+		return;
+	}
+
 
 	double ax; 
 	double ay; 
 	double V;
-	bool in_orbit = true;
-	while (in_orbit) {
-		r = pythagoras(spacecraft_status.x, spacecraft_status.y);
 
-		ax = - (EARTHMU * spacecraft_status.x)/ (r * r * r);
-		ay = - (EARTHMU * spacecraft_status.y)/ (r * r * r);
+	double r = pythagoras(spacecraft_status.x, spacecraft_status.y);
 
-		spacecraft_status.vx += ax * DT;
-		spacecraft_status.vy += ay * DT;
+	ax = - (EARTHMU * spacecraft_status.x)/ (r * r * r);
+	ay = - (EARTHMU * spacecraft_status.y)/ (r * r * r);
 
-		spacecraft_status.x += spacecraft_status.vx * DT;
-		spacecraft_status.y += spacecraft_status.vy * DT;
+	spacecraft_status.vx += ax * DT;
+	spacecraft_status.vy += ay * DT;
 
-		V = sqrt((spacecraft_status.vx * spacecraft_status.vx) + (spacecraft_status.vy * spacecraft_status.vy));
+	spacecraft_status.x += spacecraft_status.vx * DT;
+	spacecraft_status.y += spacecraft_status.vy * DT;
+
+	V = sqrt((spacecraft_status.vx * spacecraft_status.vx) + (spacecraft_status.vy * spacecraft_status.vy));
+
+	r = pythagoras(spacecraft_status.x, spacecraft_status.y);
+
+	spacecraft_status.altitude = r - RADIUS;
+
+	// std::cout << std::fixed
+	// << "Altitude: " << spacecraft_status.altitude
+	// << " m | Speed: " << V
+	// << " m/s | Time: " << spacecraft_status.elapsed_time
+	// << " s | x: " << spacecraft_status.x
+	// << " | y: " << spacecraft_status.y 
+	// << std::endl;
 	
-		r = pythagoras(spacecraft_status.x, spacecraft_status.y);
+	spacecraft_status.elapsed_time += DT;
+}
 
-		spacecraft_status.altitude = r - RADIUS;
-
-   		std::cout << std::fixed
-             	<< "Altitude: " << spacecraft_status.altitude
-              	<< " m | Speed: " << V
-		<< " m/s | Time: " << spacecraft_status.elapsed_time
-              	<< " s\n";
-		
-		spacecraft_status.elapsed_time += DT;
-	}
-
+double get_x() {
+	return spacecraft_status.x;
+}
+double get_y() {
+	return spacecraft_status.y;
+}
+double get_altitude() {
+	return spacecraft_status.altitude;
+}
+double get_time_elapsed() {
+	return spacecraft_status.elapsed_time;
 }
 
 double pythagoras(double x, double y) {
 	return sqrt((x * x) + (y * y));
 }
+
+
+
 
 void falling_test(double spacecraft_mass, double altitude) { // This does not work
 	if (altitude + RADIUS < RADIUS) {
